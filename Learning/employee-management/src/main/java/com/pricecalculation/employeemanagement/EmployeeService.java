@@ -13,11 +13,11 @@ public class EmployeeService {
 
 	private final EmployeeRepository employeeRepository;
 
-	public Optional<EmployeeEntity> findById(Long id) {
+	public Optional<Employee> findById(Long id) {
 		return employeeRepository.findById(id);
 	}
 
-	public List<EmployeeEntity> findAll() {
+	public List<Employee> findAll() {
 		return employeeRepository.findAll();
 	}
 
