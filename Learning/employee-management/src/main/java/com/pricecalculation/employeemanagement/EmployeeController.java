@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 
@@ -18,7 +21,19 @@ public class EmployeeController {
 
 	private final EmployeeService employeeService;
 
+	/**
+	 * Reads the employee by id.
+	 * @param id The requested id of the employee.
+	 * @return The found employee entity.
+	 */
 	@GetMapping("/{id}")
+	@ApiOperation(value = "Returns an employee by id")
+	@ApiResponses(
+		value = {
+			@ApiResponse(code = 200, message = "Successfully returned an employee"),
+			@ApiResponse(code = 404, message = "Failed to find the requested employee")
+		}
+	)
 	@ResponseBody
 	public ResponseEntity<Employee> getEmployee(@PathVariable("id") Long id) {
 		Optional<Employee> employee = employeeService.findById(id);
@@ -30,7 +45,18 @@ public class EmployeeController {
 		}
 	}
 
+	/**
+	 * Reads all employees
+	 * @return The list of all employees.
+	 */
 	@GetMapping("/get-all")
+	@ApiOperation(value = "Returns all employees")
+	@ApiResponses(
+		value = {
+			@ApiResponse(code = 200, message = "Successfully returned all employees"),
+			@ApiResponse(code = 404, message = "Failed to return all employees")
+		}
+	)
 	public List<Employee> getAll() {
 		return employeeService.findAll();
 	}
