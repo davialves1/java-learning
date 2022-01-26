@@ -21,4 +21,15 @@ public class EmployeeService {
 		return employeeRepository.findAll();
 	}
 
+	public Employee create(Employee employee) {
+		return employeeRepository.save(employee);
+	}
+
+	public Employee employeeDtoToEntity(EmployeeDto employeeDto) {
+		return new Employee(
+			employeeDto.getFirstName(),
+			employeeDto.getLastName(),
+			employeeDto.getEmail());
+	}
+
 }
