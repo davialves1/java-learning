@@ -22,9 +22,9 @@ public class EmployeeDto {
 	@ApiModelProperty(value = "First name of the employee")
 	private String firstName;
 
-	@ApiModelProperty(value = "First name of the employee")
+	@ApiModelProperty(value = "Last name of the employee")
 	private String lastName;
 
-	@ApiModelProperty(value = "First name of the employee")
+	@ApiModelProperty(value = "Email of the employee")
 	private String email;
 }

@@ -31,7 +31,7 @@ public class EmployeeController {
 	 * @param id The requested id of the employee.
 	 * @return The found employee entity.
 	 */
-	@GetMapping("/{id}")
+	@GetMapping("/by-id/{id}")
 	@ApiOperation(value = "Returns an employee by id")
 	@ApiResponses(
 		value = {
@@ -40,7 +40,9 @@ public class EmployeeController {
 		}
 	)
 	@ResponseBody
-	public ResponseEntity<Employee> getEmployee(@PathVariable("id") Long id) {
+	public ResponseEntity<Employee> getEmployee(
+		@ApiParam(value = "Id of the employee", required = true)
+		@PathVariable("id") Long id) {
 		Optional<Employee> employee = employeeService.findById(id);
 
 		if (employee.isEmpty()) {
