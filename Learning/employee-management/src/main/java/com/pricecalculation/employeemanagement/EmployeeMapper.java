@@ -11,4 +11,12 @@ public class EmployeeMapper {
 			employeeDto.getLastName(),
 			employeeDto.getEmail());
 	}
+
+	public EmployeeDto employeeEntityToDto(Employee employee) {
+		EmployeeDto employeeDto = new EmployeeDto();
+		employeeDto.setFirstName(employee.getFirstName());
+		employeeDto.setLastName(employee.getLastName());
+		employeeDto.setEmail(employee.getEmail());
+		return employeeDto;
+	}
 }
