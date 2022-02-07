@@ -1,33 +1,39 @@
 import './App.css';
-import EmployeesList from "./Employees-List/Employees-List";
+import AllEmployeesList from "./All-Employees-List/All-Employees-List";
+import Home from "./Home/Home";
+import Menu from "./Menu/Menu";
+import env from "./env";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
 
 function App() {
   return (
-    <div>
-      <div className="container-fluid">
-        <div className="row bg-light shadow sticky-top">
-          <div className="col-10 col-md-8 mx-auto text-center py-4">
-            <h2>Employee Management</h2>
+      <div>
+        <BrowserRouter>
+          <div className="container-fluid">
+            <div className="row bg-light shadow sticky-top">
+              <div className="col-10 col-md-8 mx-auto text-center py-4">
+                <h2>
+                  <a href={env.local} className="text-decoration-none">
+                    Employee Management
+                  </a>
+                </h2>
+              </div>
+            </div>
+            <div className="row">
+              <div
+                  className="col-3 bg-light vh-100 pt-5 px-4 d-none d-md-block">
+                <Menu/>
+              </div>
+              <div className="col-12 col-md-9 pt-5">
+                <Routes>
+                  <Route path="/" element={<Home/>}/>
+                  <Route path="/all-employees" element={<AllEmployeesList/>}/>
+                </Routes>
+              </div>
+            </div>
           </div>
-        </div>
-        <div className="row">
-          <div className="col-3 bg-light vh-100 pt-5 px-4 d-none d-md-block">
-            <ul className="list-group">
-              <li className="list-group-item active" aria-current="true">
-                All employees
-              </li>
-              <li className="list-group-item">Edit employee</li>
-              <li className="list-group-item">Create employee</li>
-              <li className="list-group-item">Update employee</li>
-              <li className="list-group-item">Delete employee</li>
-            </ul>
-          </div>
-          <div className="col-12 col-md-9 pt-5">
-            <EmployeesList />
-          </div>
-        </div>
+        </BrowserRouter>
       </div>
-    </div>
   );
 }
 

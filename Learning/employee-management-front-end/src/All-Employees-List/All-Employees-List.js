@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import axios from "axios";
-import Card from "./Card";
+import Card from "../Card/Card";
 
-const EmployeesList = () => {
+const AllEmployeesList = () => {
 
   const [employees, setEmployees] = useState([]);
 
@@ -24,6 +24,7 @@ const EmployeesList = () => {
       </div>
 
   const loading = isLoading ? <img className="img-fluid p-5 m-5"
+                                   alt="loading-spinner"
                                    src="https://c.tenor.com/I6kN-6X7nhAAAAAj/loading-buffering.gif"/>
       : <></>;
 
@@ -55,4 +56,4 @@ return (
 }
 ;
 
-export default EmployeesList;
+export default AllEmployeesList;

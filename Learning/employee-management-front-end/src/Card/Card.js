@@ -1,5 +1,6 @@
 import React from "react";
 import './Card.scss';
+import env from "../env";
 
 const Card = (props) => {
 
@@ -10,7 +11,7 @@ const Card = (props) => {
   return (
       <>
         <div className="card">
-          <img src={backgroundImage} className="card-img-top" alt="..." />
+          <img src={backgroundImage} className="card-img-top" alt="avatar-background" />
           <div className="card-body">
             <div id="avatar"
                  className="avatar rounded-circle mb-3 text-center text-white py-3 display-6 bg-primary">
@@ -25,7 +26,7 @@ const Card = (props) => {
               Some quick example text to build on the
               card title and make up the bulk of the card's content.
             </p>
-            <a href="#" className="btn btn-outline-primary py-3 px-5 my-3"
+            <a href={`${env.local}${props.employee.id}`} className="btn btn-outline-primary py-3 px-5 my-3"
             >See profile</a>
           </div>
         </div>

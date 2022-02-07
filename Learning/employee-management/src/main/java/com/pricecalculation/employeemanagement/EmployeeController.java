@@ -65,8 +65,9 @@ public class EmployeeController {
 			@ApiResponse(code = 404, message = "Failed to return all employees")
 		}
 	)
-	public List<Employee> getAllEmployees() {
-		return employeeService.findAll();
+	public ResponseEntity<List<Employee>> getAllEmployees() {
+		List<Employee> allEmployeesList = employeeService.findAll();
+		return new ResponseEntity<>(allEmployeesList, HttpStatus.OK);
 	}
 
 	/**
