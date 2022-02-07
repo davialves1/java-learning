@@ -1,19 +1,24 @@
 import React from "react";
-import {Link} from "react-router-dom";
+import {BiHomeAlt} from 'react-icons/bi'
+import {BsPeople} from 'react-icons/bs'
+import {NavLink} from "react-router-dom";
 
 const Menu = () => {
+
   return (
-      <ul className="list-group">
-        <li id="home" className="list-group-item active" aria-current="true">
-          <Link to="/">Home</Link>
+      <ul className="list-group" style={{listStyle: "none"}}>
+        <li>
+          <NavLink className="list-group-item" activeClassName="active" to="/">
+            <BiHomeAlt />
+            <span className="p-4">Home</span>
+          </NavLink>
         </li>
-        <li id="all" className="list-group-item">
-          <Link to="all-employees">All employees</Link>
+        <li>
+          <NavLink className="list-group-item" activeClassName="active" to="all-employees">
+            <BsPeople />
+            <span className="p-4">All Employees</span>
+          </NavLink>
         </li>
-        <li id="edit" className="list-group-item">Edit employee</li>
-        <li id="create" className="list-group-item">Create employee</li>
-        <li id="update" className="list-group-item">Update employee</li>
-        <li id="delete" className="list-group-item">Delete employee</li>
       </ul>
   );
 }

@@ -13,8 +13,8 @@ function App() {
             <div className="row bg-light shadow sticky-top">
               <div className="col-10 col-md-8 mx-auto text-center py-4">
                 <h2>
-                  <a href={env.local} className="text-decoration-none">
-                    Employee Management
+                  <a href={env.local} className="text-decoration-none ">
+                    <span className="p-2 grey display-6">Employee Management</span>
                   </a>
                 </h2>
               </div>
@@ -24,7 +24,7 @@ function App() {
                   className="col-3 bg-light vh-100 pt-5 px-4 d-none d-md-block">
                 <Menu/>
               </div>
-              <div className="col-12 col-md-9 pt-5">
+              <div className="col-12 col-md-9 pt-3 vh-100 overflow-scroll">
                 <Routes>
                   <Route path="/" element={<Home/>}/>
                   <Route path="/all-employees" element={<AllEmployeesList/>}/>
